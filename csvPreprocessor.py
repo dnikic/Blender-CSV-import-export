@@ -7,7 +7,7 @@ def header_remover(filename):
     #print(type(lines))
     f = open(filename+"_fixed"+".csv", "w")
     #new_lines = []
-    chars = set('abcdefghijklmn_+=[]()!$%^&*()')
+    chars = set('ABCDEFGHIJKLMNOPQRSTUXYZVWabcdefghijklmnopqrstuxyzvw_+=[]()!$%^&*()')
     for i in range(0,len(lines)):
         # print(lines[i])
         #print(type(lines[i]))
