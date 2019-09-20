@@ -6,8 +6,6 @@ def header_remover(filename):
     #print(len(lines))
     #print(type(lines))
     f = open(filename+"_fixed"+".csv", "w")
-    #new_lines = []
-    chars = set('ABCDEFGHIJKLMNOPQRSTUXYZVWabcdefghijklmnopqrstuxyzvw_+=[]()!$%^&*()')
     for i in range(0,len(lines)):
         # print(lines[i])
         #print(type(lines[i]))
@@ -24,9 +22,7 @@ def header_remover(filename):
         if "vicon_timestamp" in lines[i]:
             print('Removed line ',i)
         else:
-            #new_lines.append(lines[i])
             f.write(lines[i])
-    #print(new_lines)
     f.close()
 
 header_remover("output.csv")
