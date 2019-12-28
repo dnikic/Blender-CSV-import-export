@@ -28,7 +28,7 @@ def read_markers_csv(filename):
         # extracting field names through first row 
         fields = next(csvreader)
         # extracting each data row one by one 
-        for row in csvreader: 
+        for row in csvreader:
             rows.append(row)   
         # get total number of rows 
         print("Total no. of rows: %d"%(csvreader.line_num))   
@@ -44,7 +44,8 @@ def read_markers_csv(filename):
             one_vertex = [float(rows[i][e]),float(rows[i][e+1]),float(rows[i][e+2])]#A tuple
             print(one_vertex)
             if i==0:
-                bpy.ops.mesh.primitive_cube_add(radius=0.1, view_align=False, enter_editmode=False, location=one_vertex, layers=(True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False))
+#                bpy.ops.mesh.primitive_cube_add(size=0.1, view_align=False, enter_editmode=False, location=one_vertex, layers=(True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False))
+                bpy.ops.mesh.primitive_cube_add(size=10, enter_editmode=False, location=one_vertex)
                 bpy.context.object.name = "marker_"+ str(e//3)
                 bpy.data.objects['marker_'+str(e//3)].keyframe_insert(data_path="location", frame=i)
             else:
@@ -53,5 +54,6 @@ def read_markers_csv(filename):
             e=e+3 
     return
        
-read_markers_csv('test4.csv')
+       
+read_markers_csv('/home/dnikic/Downloads/test_RGB_CSV_sync/output_blendered.csv')
 
